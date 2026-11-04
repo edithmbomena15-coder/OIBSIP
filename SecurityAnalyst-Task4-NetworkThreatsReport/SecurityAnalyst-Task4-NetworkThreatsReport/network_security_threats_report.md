@@ -1,98 +1,78 @@
 # Network Security Threats Report
 
-Author: Edith Mbomena
-Track:Security Analyst
-Task: Task 4 - Network Security Threats
+**Author:** Edith Mbomena
+**Track:** Security Analyst
+**Task:** Task 4 - Network Security Threats
 
- 1. Introduction
-Cyebersecuirty matters today because there has being an increased rate of computer breaches, theft and data being lost concerning personal data,business,financial systems and digital infrastructure.
-As technology continues to advance, threats such as hacking, phishing, malware and breaches are arising cybersecurity will help mitigate and protect all information and data to ensure
-safety of digital systems.
+---
 
-Modern businesses depend on their networks to run daily operations, from communicating with customers to storing sensitive records. Most work is now done online, so a network is a core part of how a company operates. When that network is compromised, critical data can be exposed, causing severe losses, and any disruption can mean downtime, lower productivity and lost money. Beyond the immediate financial hit, a breach can also cause reputational damage, because customers and partners are less willing to trust a company that failed to protect their information.
+## 1. Introduction
+Cybersecurity matters today because there has been an increased rate of computer breaches, theft, and data loss concerning personal data, business, financial systems, and digital infrastructure. As technology continues to advance, threats such as hacking, phishing, and malware are constantly arising. Cybersecurity helps mitigate these risks and protects information to ensure the safety of digital systems.
 
- 3. DoS / DDoS Attacks
-How it works: Hackers use many computers to send data traffic into the website or server at the same time. The goal is to overwhelm a system to cause delayment.
+Modern businesses depend on their networks to run daily operations, from communicating with customers to storing sensitive records. When a network is compromised, critical data can be exposed, causing severe losses, downtime, lower productivity, and lost money. A breach can also cause reputational damage, because customers are less willing to trust a company that failed to protect their information.
 
-Real-World Example:
-Imagine a samll company with 20 people and all of suddenly 2000 fake
-customers rush into their system and so the system becomes overwhelmed. 
+## 2. DoS / DDoS Attacks
+**How it works:** Hackers use many infected computers (a botnet) to send overwhelming amounts of data traffic to a target server or website at the same time. The goal is to exhaust the target's resources, causing the system to slow down or crash completely.
 
-Impact:
-Attackers take control of many devices often forming a botnet, those devices send massive amounts of requests to a target server, the website becomes slow and unavailable.
+**Real-World Example:** In 2018, GitHub suffered one of the largest recorded DDoS attacks, where attackers flooded the platform with 1.35 terabits per second of fake traffic.
 
+**Impact:** Legitimate users cannot access the service. This results in financial loss, operational downtime, and reputational damage for the targeted organization.
 
-Mitigations:
-1. use traffic filtering
-2. Implement   firewalls
-3. Monitor Unusual Network traffic
+**Mitigations:**
+1. Use traffic filtering and rate limiting.
+2. Implement Web Application Firewalls (WAF).
+3. Monitor network traffic for unusual spikes.
 
- 3. Man-in-the-Middle (MITM) Attacks
-How it work: Happens when an attacker positions himself between two people communicating with eachother with an aim to disrupt, steal or even change the info being exchanged.
+## 3. Man-in-the-Middle (MITM) Attacks
+**How it works:** This happens when an attacker secretly positions themselves between two parties communicating with each other, with the aim to eavesdrop, steal, or alter the information being exchanged.
 
-Real-World Example: Imagine you are at an airport and you login to a free wifi an attacker has created hotspot that looks like free airport Wifi. 
-The attacker has created a malicious hotspot and he may intercept and login into your data.
+**Real-World Example:** A user logs into a free Wi-Fi network at an airport. An attacker has set up a malicious hotspot that looks identical to the real airport Wi-Fi. Once connected, the attacker intercepts all the user's data.
 
-Impact: Data theft, data manipulation, identity theft, and privacy violation.
+**Impact:** Data theft, data manipulation, identity theft, and privacy violations.
 
-Mitigations:
-1. use HTTPS
-2. Digital Certifications
-3. use trusted VPNs
+**Mitigations:**
+1. Always use HTTPS websites.
+2. Rely on digital certificates (like SSL/TLS).
+3. Use trusted VPNs when on public networks.
 
- 4. IP Spoofing
-How it works:
-The attacker prepares a data pocket, and replace with the actual source IP address with a fake one it then travels through the network and the recieving computer
-sees the false address and the attacker hides the identity to another target.
+## 4. IP Spoofing
+**How it works:** The attacker creates a data packet and replaces the actual source IP address with a fake one. As it travels through the network, the receiving computer sees the false address, allowing the attacker to hide their identity and target someone else.
 
-Real-World Example:
-the attacker sends requests to publicly accessible DNS server, the requests contain the company IP address as the fake sender the servers send the responses to the company
-instead of the attacker. The company receives a large volume of unwanted traffic.
+**Real-World Example:** An attacker sends requests to a public DNS server, using a company's IP address as the fake sender. The servers send massive responses to the company instead of the attacker, flooding the company with unwanted traffic.
 
-Impact:
-Financial loss, data loss, data security risks, network disruption.
+**Impact:** Financial loss, data loss, network disruption, and security risks.
 
-Mitigations:
-1. Ingress Filtering
-2. firewalls and access control lists.
-3. Network monitoring 
+**Mitigations:**
+1. Implement Ingress Filtering.
+2. Use firewalls and access control lists (ACLs).
+3. Constant network monitoring.
 
- 5. DNS Poisoning / Spoofing (Bonus)
-DNS poisoning is dangerous because attackers can manipulate DNS information and redirect users to malicious websites.
-How it works:
-* You enter a website name into your browser.
-* Your device sends a request to a DNS resolver.
-* The resolver finds the IP address associated with that domain name.
-* The IP address is returned to your device.
-* Your browser connects to the website’s server.
+## 5. DNS Poisoning / Spoofing (Bonus)
+**How it works:** An attacker corrupts the DNS cache, causing a domain name to point to the wrong IP address. When a user types a website name, they are redirected to a malicious site without knowing.
 
-Real-World Example:
- when you type www.google.com into your browser, DNS finds the corresponding IP address so your device can connect to Google’s server.
-Impact:
- Hackers trying to steal information.
- Malware infecting computers.
-  Attackers trying to shut down web
-Mitigations:
-1. . Ingress Filtering
-2. firewalls and access control lists.
-3. Network monitoring 
-  
- 6. Comparison Table
+**Real-World Example:** In 2019, hackers launched a massive DNS spoofing campaign (DNSpionage) targeting government and private entities in the Middle East, redirecting their traffic to fake login pages.
+
+**Impact:** Hackers stealing sensitive information, malware infecting computers, and attackers shutting down web services.
+
+**Mitigations:**
+1. Use DNSSEC (Domain Name System Security Extensions).
+2. Use encrypted DNS (DoH/DoT).
+3. Regularly flush DNS caches.
+
+## 6. Comparison Table
 
 | Threat | Attack Vector | Who is at Risk | Difficulty to Execute | Ease of Mitigation |
+| :--- | :--- | :--- | :--- | :--- |
+| DoS/DDoS | Flooding a server with excessive traffic | Web servers, businesses | Low-Medium | Medium |
+| MITM | Intercepting communication (e.g., malicious Wi-Fi) | Public Wi-Fi users, remote workers | Medium-High | Medium |
+| IP Spoofing | Forging the source IP address in packets | Networks, DNS servers | Medium | Medium-High |
+| DNS Poisoning | Injecting false DNS records | General public, businesses | Medium-High | Medium |
 
-| DoS/DDoS | DoS	Flooding a server or network with excessive requests or traffic.	Medium	|Medium |
-| MITM | Intercepting communication through malicious Wi-Fi,|ARP spoofing or compromised network infrastructure | Medium–High| Medium|
-| IP Spoofing |Forging the source IP address in network packets. | Medium	Medium–High| | |
-| DNS Poisoning |Injecting false DNS records or compromising  | DNS infrastructure to redirect users.| Medium–High	Medium |
+## 7. Conclusion
+Effective cybersecurity requires continuous monitoring, awareness, and proactive security measures. Network administrators must understand how these threats operate so they can implement the right defenses to identify and prevent attacks before they cause significant damage.
 
-7. Conclusion
- Effective cybersecurity requires continuous monitoring,
-awareness and proactive security measures to identify and prevent threats before they cause significant damage.
-
-
- 9. References
-1. NIST Secure DNS Deployment Guide (2026)⁠
-2. Cybersecurity and Infrastructure Security Agency (CISA). Understanding and Responding to Distributed Denial-of-Service (DDoS) Attacks. Read CISA DDoS guidance
-3.  NIST guidance on IP spoofing and DDoS mitigation⁠￼.
-4.MITRE ATT&CK network traffic mitigation
+## 8. References
+1. NIST Secure DNS Deployment Guide
+2. Cybersecurity and Infrastructure Security Agency (CISA). Understanding and Responding to Distributed Denial-of-Service (DDoS) Attacks.
+3. NIST guidance on IP spoofing and DDoS mitigation.
+4. MITRE ATT&CK network traffic mitigation.
