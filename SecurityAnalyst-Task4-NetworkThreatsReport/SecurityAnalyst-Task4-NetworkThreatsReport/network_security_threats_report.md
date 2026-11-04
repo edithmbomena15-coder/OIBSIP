@@ -9,7 +9,9 @@ Cyebersecuirty matters today because there has being an increased rate of comput
 As technology continues to advance, threats such as hacking, phishing, malware and breaches are arising cybersecurity will help mitigate and protect all information and data to ensure
 safety of digital systems.
 
- 2. DoS / DDoS Attacks
+Modern businesses depend on their networks to run daily operations, from communicating with customers to storing sensitive records. Most work is now done online, so a network is a core part of how a company operates. When that network is compromised, critical data can be exposed, causing severe losses, and any disruption can mean downtime, lower productivity and lost money. Beyond the immediate financial hit, a breach can also cause reputational damage, because customers and partners are less willing to trust a company that failed to protect their information.
+
+ 3. DoS / DDoS Attacks
 How it works: Hackers use many computers to send data traffic into the website or server at the same time. The goal is to overwhelm a system to cause delayment.
 
 Real-World Example:
