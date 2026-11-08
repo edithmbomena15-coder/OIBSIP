@@ -26,7 +26,11 @@ Modern businesses depend on their networks to run daily operations, from communi
 ## 3. Man-in-the-Middle (MITM) Attacks
 **How it works:** This happens when an attacker secretly positions themselves between two parties communicating with each other, with the aim to eavesdrop, steal, or alter the information being exchanged.
 
-**Real-World Example:** A user logs into a free Wi-Fi network at an airport. An attacker has set up a malicious hotspot that looks identical to the real airport Wi-Fi. Once connected, the attacker intercepts all the user's data.
+**Real-World Example:** 
+In 2011, hackers broke into DigiNotar, a company that issued the digital certificates browsers use to confirm a website is genuine. 
+They created fake certificates for Google and other websites. 
+Because browsers trusted DigiNotar, the fake certificates looked genuine and users still saw the normal padlock, so they could not tell anything was wrong. This allowed the attackers to secretly intercept and read private Gmail messages, mainly belonging to users in Iran. Browsers later removed their trust in DigiNotar and the company went bankrupt. 
+A more everyday example is a traveller connecting to airport Wi-Fi: an attacker could set up a fake hotspot with the same name, and everything the traveller sends would pass through the attacker first.
 
 **Impact:** Data theft, data manipulation, identity theft, and privacy violations.
 
