@@ -54,7 +54,9 @@ A more everyday example is a traveller connecting to airport Wi-Fi: an attacker 
 ## 5. DNS Poisoning / Spoofing (Bonus)
 **How it works:** An attacker corrupts the DNS cache, causing a domain name to point to the wrong IP address. When a user types a website name, they are redirected to a malicious site without knowing.
 
-**Real-World Example:** In 2019, hackers launched a massive DNS spoofing campaign (DNSpionage) targeting government and private entities in the Middle East, redirecting their traffic to fake login pages.
+**Real-World Example:** 
+In 2008, security researcher Dan Kaminsky discovered a serious weakness in the Domain Name System (DNS) that made poisoning DNS servers much easier. Attackers could trick a DNS server into storing a fake IP address for a website, so every user relying on that server was redirected to a malicious site instead of the genuine one. Users might not notice, because they believed they were visiting the correct website.
+Because the flaw affected DNS software used across the internet, vendors released a coordinated security update, and source port randomisation became an important defence against cache poisoning.
 
 **Impact:** Hackers stealing sensitive information, malware infecting computers, and attackers shutting down web services.
 
