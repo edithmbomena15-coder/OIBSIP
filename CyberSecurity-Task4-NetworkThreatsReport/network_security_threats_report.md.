@@ -75,10 +75,19 @@ Because the flaw affected DNS software used across the internet, vendors release
 | DNS Poisoning | Injecting false DNS records | General public, businesses | Medium-High | Medium |
 
 ## 7. Conclusion
-Effective cybersecurity requires continuous monitoring, awareness, and proactive security measures. Network administrators must understand how these threats operate so they can implement the right defenses to identify and prevent attacks before they cause significant damage.
+The DigiNotar incident, IP spoofing and DNS cache poisoning show how attackers exploit systems that accept unverified information, or that place complete trust in a single source.
+Certificate validation, ingress and egress filtering, and DNSSEC help, and administrators should also avoid depending on any one authority or control without a second check.
 
 ## 8. References
-1. NIST Secure DNS Deployment Guide
-2. Cybersecurity and Infrastructure Security Agency (CISA). Understanding and Responding to Distributed Denial-of-Service (DDoS) Attacks.
-3. NIST guidance on IP spoofing and DDoS mitigation.
-4. MITRE ATT&CK network traffic mitigation.
+
+## 8. References
+
+1. Chandramouli, R., & Rose, S. (2013). *Secure Domain Name System (DNS) Deployment Guide* (NIST Special Publication 800-81-2). National Institute of Standards and Technology. https://www.nist.gov/publications/secure-domain-name-system-dns-deployment-guide-1
+
+2. Cybersecurity and Infrastructure Security Agency, Federal Bureau of Investigation, & Multi-State Information Sharing and Analysis Center. (2024). *Understanding and Responding to Distributed Denial-of-Service Attacks.* https://www.cisa.gov/sites/default/files/2024-03/understanding-and-responding-to-distributed-denial-of-service-attacks_508c.pdf
+
+3. MITRE. (n.d.). *Adversary-in-the-Middle (T1557).* MITRE ATT&CK. https://attack.mitre.org/techniques/T1557/
+
+4. Kottler, S. (2018, March 1). *February 28th DDoS Incident Report.* The GitHub Blog. https://github.blog/news-insights/company-news/ddos-incident-report/
+
+5. Nightingale, J. (2011, August 29). *Fraudulent *.google.com Certificate.* Mozilla Security Blog. https://blog.mozilla.org/security/2011/08/29/fraudulent-google-com-certificate/
