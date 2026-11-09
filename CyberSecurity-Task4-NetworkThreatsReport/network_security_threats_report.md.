@@ -7,63 +7,61 @@
 ---
 
 ## 1. Introduction
-Cybersecurity matters today because there has been an increased rate of computer breaches, theft, and data loss concerning personal data, business, financial systems, and digital infrastructure. As technology continues to advance, threats such as hacking, phishing, and malware are constantly arising. Cybersecurity helps mitigate these risks and protects information to ensure the safety of digital systems.
-
 Modern businesses depend on their networks to run daily operations, from communicating with customers to storing sensitive records. When a network is compromised, critical data can be exposed, causing severe losses, downtime, lower productivity, and lost money. A breach can also cause reputational damage, because customers are less willing to trust a company that failed to protect their information.
 
-## 2. DoS / DDoS Attacks
-**How it works:** Hackers use many infected computers (a botnet) to send overwhelming amounts of data traffic to a target server or website at the same time. The goal is to exhaust the target's resources, causing the system to slow down or crash completely.
+As technology advances, network threats keep growing in number and sophistication. This report explains four common ones: DoS/DDoS attacks, Man-in-the-Middle (MITM) attacks, IP spoofing, and DNS poisoning. For each, it describes how the attack works, a real-world example, its impact, and how to defend against it.
 
-**Real-World Example:** In 2018, GitHub suffered one of the largest recorded DDoS attacks, where attackers flooded the platform with 1.35 terabits per second of fake traffic.
+## 2. DoS / DDoS Attacks
+**How it works:** Attackers overwhelm a target server or website with so much traffic that it slows down or crashes. Often they use many infected computers (a botnet). Some attacks, like the one below, use amplification instead, where a small request to a third-party server produces a much larger response aimed at the victim.
+
+**Real-World Example:** In February 2018, GitHub was hit by an attack that peaked at 1.35 Tbps and briefly knocked the site offline. The attackers abused exposed memcached servers by sending them small requests with GitHub's IP address forged as the sender. The servers then sent huge replies to GitHub, a technique called amplification, because a tiny request produces a much larger response. This was a DDoS attack because the flood came from many servers at once, and it was IP spoofing because the forged sender address is what directed those replies at GitHub rather than back to the attacker. [4]
 
 **Impact:** Legitimate users cannot access the service. This results in financial loss, operational downtime, and reputational damage for the targeted organization.
 
 **Mitigations:**
 1. Use traffic filtering and rate limiting.
 2. Implement Web Application Firewalls (WAF).
-3. Monitor network traffic for unusual spikes.
+3. Use a DDoS protection service that can absorb attack traffic. [2]
 
 ## 3. Man-in-the-Middle (MITM) Attacks
-**How it works:** This happens when an attacker secretly positions themselves between two parties communicating with each other, with the aim to eavesdrop, steal, or alter the information being exchanged.
+**How it works:** This happens when an attacker secretly positions themselves between two parties communicating with each other, with the aim to eavesdrop, steal, or alter the information being exchanged. [3]
 
-**Real-World Example:** 
-In 2011, hackers broke into DigiNotar, a company that issued the digital certificates browsers use to confirm a website is genuine. 
-They created fake certificates for Google and other websites. 
-Because browsers trusted DigiNotar, the fake certificates looked genuine and users still saw the normal padlock, so they could not tell anything was wrong. This allowed the attackers to secretly intercept and read private Gmail messages, mainly belonging to users in Iran. Browsers later removed their trust in DigiNotar and the company went bankrupt. 
+**Real-World Example:** In 2011, hackers broke into DigiNotar, a company that issued the digital certificates browsers use to confirm a website is genuine. They created fake certificates for Google and other websites. Because browsers trusted DigiNotar, the fake certificates looked genuine and users still saw the normal padlock, so they could not tell anything was wrong. This allowed the attackers to secretly intercept and read private Gmail messages, mainly belonging to users in Iran. Browsers later removed their trust in DigiNotar. [5]
+
+HTTPS alone does not fully stop MITM because it depends on trusted certificates. If an attacker obtains a fake certificate, or tricks a user into ignoring a browser warning, the connection looks secure even though it is not.
+
 A more everyday example is a traveller connecting to airport Wi-Fi: an attacker could set up a fake hotspot with the same name, and everything the traveller sends would pass through the attacker first.
 
 **Impact:** Data theft, data manipulation, identity theft, and privacy violations.
 
 **Mitigations:**
 1. Always use HTTPS websites.
-2. Rely on digital certificates (like SSL/TLS).
+2. Use certificate validation and HSTS.
 3. Use trusted VPNs when on public networks.
 
 ## 4. IP Spoofing
 **How it works:** The attacker creates a data packet and replaces the actual source IP address with a fake one. As it travels through the network, the receiving computer sees the false address, allowing the attacker to hide their identity and target someone else.
 
-**Real-World Example:** An attacker sends requests to a public DNS server, using a company's IP address as the fake sender. The servers send massive responses to the company instead of the attacker, flooding the company with unwanted traffic.
+**Real-World Example:** The 2018 GitHub attack relied on spoofed source addresses. Attackers forged GitHub's address on requests sent to exposed memcached servers, so the servers sent their large replies to GitHub instead of back to the attacker. [4]
 
 **Impact:** Financial loss, data loss, network disruption, and security risks.
 
 **Mitigations:**
-1. Implement Ingress Filtering.
-2. Use firewalls and access control lists (ACLs).
-3. Constant network monitoring.
+1. Implement ingress filtering.
+2. Apply egress filtering, so packets with source addresses that do not belong to your network are blocked.
+3. Use firewalls and access control lists (ACLs).
 
 ## 5. DNS Poisoning / Spoofing (Bonus)
 **How it works:** An attacker corrupts the DNS cache, causing a domain name to point to the wrong IP address. When a user types a website name, they are redirected to a malicious site without knowing.
 
-**Real-World Example:** 
-In 2008, security researcher Dan Kaminsky discovered a serious weakness in the Domain Name System (DNS) that made poisoning DNS servers much easier. Attackers could trick a DNS server into storing a fake IP address for a website, so every user relying on that server was redirected to a malicious site instead of the genuine one. Users might not notice, because they believed they were visiting the correct website.
-Because the flaw affected DNS software used across the internet, vendors released a coordinated security update, and source port randomisation became an important defence against cache poisoning.
+**Real-World Example:** In 2008, security researcher Dan Kaminsky discovered a serious weakness in the Domain Name System (DNS) that made poisoning DNS servers much easier. Attackers could trick a DNS server into storing a fake IP address for a website, so every user relying on that server was redirected to a malicious site instead of the genuine one. Users might not notice, because they believed they were visiting the correct website. Because the flaw affected DNS software used across the internet, vendors released a coordinated security update, and source port randomisation became an important defence against cache poisoning. [1]
 
 **Impact:** Hackers stealing sensitive information, malware infecting computers, and attackers shutting down web services.
 
 **Mitigations:**
 1. Use DNSSEC (Domain Name System Security Extensions).
-2. Use encrypted DNS (DoH/DoT).
-3. Regularly flush DNS caches.
+2. Use source port randomisation.
+3. Keep DNS software patched.
 
 ## 6. Comparison Table
 
@@ -75,10 +73,16 @@ Because the flaw affected DNS software used across the internet, vendors release
 | DNS Poisoning | Injecting false DNS records | General public, businesses | Medium-High | Medium |
 
 ## 7. Conclusion
-The DigiNotar incident, IP spoofing and DNS cache poisoning show how attackers exploit systems that accept unverified information, or that place complete trust in a single source.
-Certificate validation, ingress and egress filtering, and DNSSEC help, and administrators should also avoid depending on any one authority or control without a second check.
+The following are three important lessons that network administrators can learn from the attacks discussed in this report.
 
-## 8. References
+**1. Layer Your Defences**
+Network administrators should use multiple security measures because no single security control can prevent every type of attack. Combining firewalls, traffic filtering, encryption, intrusion detection systems and continuous monitoring helps reduce the chances of a successful attack.
+
+**2. Keep Systems Patched and Properly Configured**
+Regular software updates and proper system configuration are essential for maintaining network security. Exposed memcached servers and weaknesses in DNS demonstrate how outdated software, unnecessary services and incorrect configurations can create opportunities for attackers.
+
+**3. Never Trust What You Cannot Verify**
+The DigiNotar incident, IP spoofing and DNS cache poisoning show how attackers exploit systems that accept unverified information, or that place complete trust in a single source. Certificate validation, ingress and egress filtering, and DNSSEC help, and administrators should also avoid depending on any one authority or control without a second check.
 
 ## 8. References
 
